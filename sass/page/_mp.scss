@@ -13,6 +13,7 @@
 .wrapper{
     // background: -webkit-linear-gradient(90deg, rgb(75, 54, 136), rgb(38, 208, 223));
     background: url(../images/bg-top.png) 50% top no-repeat,
+                url(../images/bg-bottom.png) left bottom no-repeat,
                 linear-gradient(90deg, rgb(75, 54, 136), rgb(38, 208, 223));
 
 }
@@ -279,7 +280,6 @@
             // }
         }
     }
-
 
     &.notice{
         .info{
