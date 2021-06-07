@@ -49,7 +49,7 @@
 *[class*="notice_success"],
 *[class*="notice_warning"],
 *[class*="notice_error"]{
-    span{
+    >span{
         display: inline-block;
         padding: .4em 1em .4em 2.5em;
         background-color: #FEEFB3;
@@ -57,7 +57,7 @@
 }
 
 .notice{
-    span{
+    >span{
         display: inline-block;
         background-color: none;
         padding: .4em 1em;
