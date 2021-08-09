@@ -1,4 +1,6 @@
 /////////////////////////////////////////////////////////以下為demo範例///
+$m-gutter: 4px;
+
 // 首頁區塊設定
 *{
     a{
@@ -206,6 +208,175 @@
     @include screen('tablet') {
         .container{
             @include gutter();
+        }
+    }
+}
+
+.pic-zone{
+    // background: #f4f4f4;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 1rem;
+
+    h4{
+        text-align: center;
+        margin-top: 0;
+        font-size: 1.125em;
+    }
+
+    .step{
+        @extend %flex_set;
+        align-items: flex-end;
+
+        // 橫線
+        position: relative;
+        &:after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: 2px;
+            background: #949494;
+            border-radius: 4px;
+        }
+
+        >.col{
+            @include gutter();
+            margin-bottom: 2em;
+            padding-bottom: 1.5em;
+            background: none;
+            // box-shadow: inset 0 0 0 1px #949494;
+            border: dotted 1px #949494;
+
+            h5{
+                text-align: center;
+                font-size: 1.125em;
+                margin: 1.125em 0 .75em;
+            }
+            // 第一層
+            &:nth-child(1){
+                @include flex-xs(12, 0px);
+                @include flex-sm(12, $m-gutter);
+                @include flex-md(4, $m-gutter);
+                @include flex-lg(4, $m-gutter);
+            }
+            &:nth-child(2){
+                @include flex-xs(12, 0px);
+                @include flex-sm(12, $m-gutter);
+                @include flex-md(3, $m-gutter);
+                @include flex-lg(3, $m-gutter);
+            }
+            &:last-child{
+                @include flex-xs(12, 0px);
+                @include flex-sm(12, $m-gutter);
+                @include flex-md(5, $m-gutter);
+                @include flex-lg(5, $m-gutter);
+
+                .col{
+                    @include flex-xs(12, $m-gutter);
+                    @include flex-sm(6, $m-gutter);
+                    @include flex-md(6, $m-gutter);
+                    @include flex-lg(6, $m-gutter);
+                }
+            }
+
+
+            // 第二層 .col
+            .process{
+                @extend %flex_set;
+                align-items: flex-end;
+
+                .col{
+                    padding: 1em .65em;
+                    color: #fff;
+                    background: #3a7db1;
+                    height: 98px;
+
+                    p{
+                        margin: 0;
+                        text-align: center;
+                        line-height: 1.4;
+                        span{
+                            display: inline-block;
+                            background: red;
+                            padding: .25em 1em;
+                            margin-top: 6px;
+                            border-radius: 12px;
+
+                            &.paied{ background: #4caf50;}
+                        }
+                    }
+
+                    // 點
+                    position: relative;
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        width: 12px;
+                        height: 12px;
+                        bottom: -3.75em;
+                        left: 50%;
+                        margin-left: -6px;
+                        background: #3a7db1;
+                        border-radius: 50%;
+                        z-index: 1;
+                    }
+                    // 線
+                    &:before{
+                        content: '';
+                        position: absolute;
+                        width: 2px;
+                        height: 3em;
+                        background: #3a7db1;
+                        left: 50%;
+                        margin-left: -1px;
+                        bottom: -3em;
+                    }
+                }
+            }
+            .col{
+                @include flex-xs(12, 0px);
+                @include flex-sm(12, 0px);
+                @include flex-md(12, 0px);
+                @include flex-lg(12, 0px);
+            }
+        }
+    }
+
+    +table{
+        margin-bottom: 2em;
+        tr td:first-child{
+            text-align: center;
+        }
+    }
+
+    @include screen('tablet') {
+        padding: 1rem 0 0;
+        .step{
+            // 橫線
+            &:after{ display: none; }
+
+            >.col{
+                margin-bottom: 1.5em;
+
+                // 第二層 .col
+                .process{
+                    align-items: stretch;
+                    .col{
+                        height: auto;
+                        // 點、線
+                        &:after, &:before{
+                            display: none;
+                        }
+                    }
+                }
+
+                &:last-child{
+                    .process{
+                        .col{ margin-bottom: 10px;}
+                    }
+                }
+            }
         }
     }
 }
